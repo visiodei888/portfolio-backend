@@ -13,7 +13,7 @@ const morgon = require("morgan")
 
 app.use(cookieParser())
 app.use(express.json())
-app.use(morgon("tiny"))
+app.use(morgon("tiny"));
 
 // security packages
 
