@@ -50,15 +50,14 @@ app.use(errorHandleMiddleware)
 
 const port = 3002 || process.env.PORT
 
-const start = async () => {
-  try {
-    await connect(process.env.MONGO_URL)
-    app.listen(port, () => {
-      console.log(`Server is listening on port ${port}....`)
-    })
-  } catch (error) {
-    console.log(error)
-  }
+try {
+  await connect(process.env.MONGO_URL)
+} catch (error) {
+  console.log(error)
 }
 
+
 start()
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}....`)
+})
